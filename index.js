@@ -17,7 +17,9 @@ const app = express();
 const session = require('express-session');
 
 // Connect to MongoDB
-connectDB()
+connectDB().then(()=>{app.listen(PORT, () => {
+  console.log(`Server is running at port ${PORT}`);
+});});
 require('./src/utils/competitionStatusJob');
 app.use(
   session({
@@ -56,7 +58,7 @@ app.use('/api/competitions', competitionRoutes);
 // app.use(errorHandler);
 
 // Start server
-// const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 
 
