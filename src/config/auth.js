@@ -12,7 +12,7 @@ module.exports = {
   PASSWORD_REQUIRES_NUMBER: true,
   
   // Frontend URL for redirects
-  FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:5173',
+  FRONTEND_URL: 'https://ugskill-frontend.vercel.app',
   
   // Token expiry times (in milliseconds)
   EMAIL_VERIFICATION_EXPIRES: 24 * 60 * 60 * 1000, // 24 hours
