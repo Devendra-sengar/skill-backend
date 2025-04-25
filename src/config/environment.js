@@ -30,11 +30,7 @@ module.exports = {
     RAZORPAY_KEY_SECRET: process.env.RAZORPAY_KEY_SECRET
   },
   
-  // External API configurations
-  EXTERNAL_API: {
-    CHATGPT_API_KEY: process.env.CHATGPT_API_KEY || "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",
-    CHATGPT_API_URL: process.env.CHATGPT_API_URL || 'https://api.openai.com'
-  },
+
   
   // Subscription plans
   SUBSCRIPTION_PLANS: {
