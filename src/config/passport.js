@@ -86,7 +86,7 @@ passport.use(
     {
       clientID: "1013952463284-0rfsvs0imcp175p82pq95iu8es8um2j0.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: `http://localhost:5000/api/auth/google/callback`,
+      callbackURL: `https://skill-backend-dats.onrender.com/api/auth/google/callback`,
       scope: ['profile', 'email'],
     },
     async (accessToken, refreshToken, profile, done) => {

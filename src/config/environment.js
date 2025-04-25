@@ -1,10 +1,12 @@
+const { FRONTEND_URL } = require('./auth');
+
 // config/environment.js
 require('dotenv').config();
 
 module.exports = {
   NODE_ENV: process.env.NODE_ENV || 'development',
   PORT: process.env.PORT || 3000,
-  
+  FRONTEND_URL:'https://ugskill-frontend.vercel.app',
   // Application info
   APP_NAME: 'Relationship Quiz App',
   APP_VERSION: '1.0.0',
