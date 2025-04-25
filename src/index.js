@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const passport = require('./src/config/passport')
+const passport = require('./config/passport')
 // const xss = require('xss-clean'); // Commented due to known issues
 
-const connectDB = require('./src/config/db'); // Assuming you moved it to a file
-const { limiter } = require('./src/middlewares/security');
-const authRoutes = require('./src/routes/authRoutes');
-const competitionRoutes = require('./src/routes/competition.routes');
+const connectDB = require('./config/db'); // Assuming you moved it to a file
+const { limiter } = require('./middlewares/security');
+const authRoutes = require('./routes/authRoutes');
+const competitionRoutes = require('./routes/competition.routes');
 // Add more routes when needed
-const participationRoutes = require('./src/routes/participationRoutes')
+const participationRoutes = require('./routes/participationRoutes')
 const cookieParser = require('cookie-parser'); // For parsing cookies
 const app = express();
 const session = require('express-session');
@@ -20,7 +20,7 @@ const session = require('express-session');
 connectDB().then(()=>{app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
 });});
-require('./src/utils/competitionStatusJob');
+require('./utils/competitionStatusJob');
 app.use(
   session({
     secret: 'your_super_secret_key', // Change this in production
