@@ -505,6 +505,20 @@ exports.googleCallback = (req, res, next) => {
       };
       console.log(userObj)
       // Redirect to frontend with tokens in URL parameters
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None', // Required for cross-site cookies
+        maxAge: 24 * 60 * 60 * 1000 // 1 day
+      });
+      
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+      });
+      
       return res.redirect(
         `${config.FRONTEND_URL}/auth/social-callback?token=${token}&refreshToken=${refreshToken}&user=${encodeURIComponent(JSON.stringify(userObj))}`
       );
